@@ -1,8 +1,7 @@
-.jumbotron,
-.card-body,
-.container,
-.site-header {
-  font-family: 'Verdana', serif !important;
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Ubuntu+Mono:wght@700&display=swap");
+
+body {
+  font-family: "Montserrat", sans-serif;
 }
 
 .jumbotron .display-4 {
@@ -32,11 +31,13 @@ nav a {
   height: 50vh;
   padding: 5em inherit;
   margin-bottom: 0;
-  background-color: #53C0FB;
-  background: url('../img/cover_back.png');
-  background-size: cover;
-  background-position: center;
+  background-color: #53c0fb;
+  background: url("../img/cover_back.svg");
+  background-size: contain;
+  background-position: 50% 50%;
   background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-origin: border-box;
   color: black;
   font-weight: bold;
 }
@@ -67,18 +68,37 @@ nav a {
   font-size: 38px;
 }
 
+.jumbotron > h1 {
+  font-size: 5rem;
+  font-family: "Ubuntu Mono", monospace;
+}
+
+.jumbotron > h1 > span {
+  color: #f09100;
+  font-size: 6rem;
+}
+
+.jumbotron > h2 {
+  color: #f09100;
+  font-family: "Ubuntu Mono", monospace;
+}
+
+.jumbotron > small {
+  color: gray;
+}
+
 footer {
   padding-top: 3rem;
   padding-bottom: 3rem;
 }
 
 footer p {
-  margin-bottom: .25rem;
+  margin-bottom: 0.25rem;
 }
 
 .site-header a {
   color: white;
-  transition: ease-in-out color .15s;
+  transition: ease-in-out color 0.15s;
 }
 
 .site-header .dropdown-menu a {
@@ -86,7 +106,7 @@ footer p {
 }
 
 .dropzone {
-  border: 2px dashed #0087F7;
+  border: 2px dashed #0087f7;
   border-radius: 5px;
   background: white;
 }
@@ -95,13 +115,13 @@ footer p {
   max-height: 100%;
 }
 
-.alert {
+/*.alert {
   position: fixed;
   top: 80px;
   width: 50%;
   left: 50%;
   transform: translate(-50%, 0);
-}
+}*/
 
 .lds-ring {
   display: inline-block;
@@ -187,4 +207,107 @@ a.custom-card:hover {
 
 .checked {
   color: orange;
+}
+
+.hover-effect:hover {
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+}
+
+.active {
+  color: #f09100 !important;
+}
+
+.mt-5 {
+  padding-top: 30px !important;
+}
+
+/*Cambio de color de las flechas del carusel de imagenes*/
+
+.carousel-control-next-icon{
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23000' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E") !important;
+}
+.carousel-control-prev-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23000' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E") !important;
+}
+
+.carousel-indicators .active {
+  background-color: #020202;
+}
+
+/*Modificador del cambio de tema*/
+
+.theme {
+  --bg-color: #fff;
+  --main-color: #323232;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  background-color: var(--bg-color);
+  border-radius: 100%;
+  border: 2px solid var(--main-color);
+  box-shadow: 4px 4px var(--main-color);
+}
+
+.input {
+  cursor: pointer;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  opacity: 0;
+}
+
+.icon {
+  position: absolute;
+  top: calc(50% -13px);
+  left: calc(50% -13px);
+  width: 26px;
+  height: 26px;
+}
+
+.icon.icon-moon {
+  fill: var(--main-color);
+}
+
+.icon.icon-sun {
+  stroke: var(--main-color);
+  display: none;
+}
+
+.input:checked ~ .icon.icon-sun {
+  display: block;
+}
+
+.input:checked ~ .icon.icon-moon {
+  display: none;
+}
+
+.theme:active {
+  box-shadow: 0px 0px var(--main-color);
+  transform: translate(3px, 3px);
+}
+
+.large-label {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.alert {
+  margin-bottom: 10px ;
+  position: static;
+  width: fit-content ;
+}
+
+#aviso-compra-exitosa {
+    display: none;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
